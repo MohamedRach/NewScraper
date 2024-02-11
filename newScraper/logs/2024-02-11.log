@@ -1,0 +1,187 @@
+INFO: Started crawling 2024-02-11 22:10:34.063198...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:11:34 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished crawling 2024-02-11 22:11:37.115405...
+INFO: Started inserting 2024-02-11 22:11:37.115405...
+ERROR: Job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:12:34 +01)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\web_dev\repo\newScraper\main.py", line 93, in job
+    batch.put_item(Item=article)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 103, in put_item
+    self._add_request_and_process({'PutRequest': {'Item': Item}})
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 112, in _add_request_and_process
+    self._flush_if_needed()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 139, in _flush_if_needed
+    self._flush()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 144, in _flush
+    response = self._client.batch_write_item(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 1009, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (ValidationException) when calling the BatchWriteItem operation: Provided list of item keys contains duplicates
+INFO: Running job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:13:34 +01)" (scheduled at 2024-02-11 22:12:34.052128+01:00)
+INFO: Started crawling 2024-02-11 22:12:34.063605...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:13:34 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished crawling 2024-02-11 22:13:42.150116...
+INFO: Started inserting 2024-02-11 22:13:42.150116...
+ERROR: Job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:14:34 +01)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\web_dev\repo\newScraper\main.py", line 93, in job
+    batch.put_item(Item=article)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 103, in put_item
+    self._add_request_and_process({'PutRequest': {'Item': Item}})
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 112, in _add_request_and_process
+    self._flush_if_needed()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 139, in _flush_if_needed
+    self._flush()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 144, in _flush
+    response = self._client.batch_write_item(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 1009, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (ValidationException) when calling the BatchWriteItem operation: Provided list of item keys contains duplicates
+INFO: Running job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:15:34 +01)" (scheduled at 2024-02-11 22:14:34.052128+01:00)
+INFO: Started crawling 2024-02-11 22:14:34.067764...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:15:34 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished crawling 2024-02-11 22:15:41.003691...
+INFO: Started inserting 2024-02-11 22:15:41.003691...
+ERROR: Job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:16:34 +01)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\web_dev\repo\newScraper\main.py", line 93, in job
+    batch.put_item(Item=article)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 103, in put_item
+    self._add_request_and_process({'PutRequest': {'Item': Item}})
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 112, in _add_request_and_process
+    self._flush_if_needed()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 139, in _flush_if_needed
+    self._flush()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 144, in _flush
+    response = self._client.batch_write_item(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 1009, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (ValidationException) when calling the BatchWriteItem operation: Provided list of item keys contains duplicates
+INFO: Running job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:17:34 +01)" (scheduled at 2024-02-11 22:16:34.052128+01:00)
+INFO: Started crawling 2024-02-11 22:16:34.065403...
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A40714D9D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/8019cd0827f89b53706b8d6172d2635d/execute/sync
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A40714D8B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/8019cd0827f89b53706b8d6172d2635d/execute/sync
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A40714DBE0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/8019cd0827f89b53706b8d6172d2635d/execute/sync
+ERROR: Job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:17:34 +01)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1331, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1377, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1326, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1085, in _send_output
+    self.send(msg)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1029, in send
+    self.connect()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001A40714DE20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\web_dev\repo\newScraper\main.py", line 81, in job
+    articles.append(newScraper.scraper(source))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\web_dev\repo\newScraper\scraperClass.py", line 13, in scraper
+    scraper(source)
+  File "d:\web_dev\repo\newScraper\scraperClass.py", line 91, in _hespressEnglishScraper
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 407, in execute_script
+    return self.execute(command, {"script": script, "args": converted_args})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    response = self.command_executor.execute(driver_command, params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 302, in execute
+    return self._request(command_info[0], url, body=data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 322, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\request.py", line 81, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\request.py", line 173, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=50533): Max retries exceeded with url: /session/8019cd0827f89b53706b8d6172d2635d/execute/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A40714DE20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+INFO: Started crawling 2024-02-11 22:21:45.219737...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:22:45 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished crawling 2024-02-11 22:22:49.632163...
+INFO: Started inserting 2024-02-11 22:22:49.632163...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:23:45 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished inserting 2024-02-11 22:23:46.612947...
+INFO: Job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:24:45 +01)" executed successfully
+INFO: Running job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:25:45 +01)" (scheduled at 2024-02-11 22:24:45.205442+01:00)
+INFO: Started crawling 2024-02-11 22:24:45.213909...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:25:45 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished crawling 2024-02-11 22:25:48.951951...
+INFO: Started inserting 2024-02-11 22:25:48.951951...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:26:45 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished inserting 2024-02-11 22:28:46.471428...
+INFO: Job "job (trigger: interval[0:01:00], next run at: 2024-02-11 22:27:45 +01)" executed successfully

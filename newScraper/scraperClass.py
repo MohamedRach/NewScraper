@@ -2,6 +2,9 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
 import requests
+import uuid
+import string
+from datetime import datetime
 
 class scraperClass:
     articles = []
@@ -9,6 +12,7 @@ class scraperClass:
         scraper = self._get_scraper(source["source"])
         scraper(source)
         return self.articles
+    
     
     def _get_scraper(self, source):
         match source:
@@ -34,10 +38,12 @@ class scraperClass:
             link = link_tag.get("href")
             img = row.find("img").get("src")
             article = {
+                'id': str(uuid.uuid4()),
                 'title': title,
                 'link': link,
                 'img': img,
-                'source': source["source"]  
+                'source': source["source"],
+                'created_at': datetime.now().isoformat()  
             }
             self.articles.append(article)
         return True
@@ -56,15 +62,18 @@ class scraperClass:
             else :
                 src = None
             article = {
+                'id': str(uuid.uuid4()),
                 'title': title,
                 'link': link,
                 'img': src,
-                'source': source["source"]   
+                'source': source["source"],
+                'created_at': datetime.now().isoformat()    
             }    
             self.articles.append(article)
         return True
     
     def _hespressEnglishScraper(self, source):
+        
         driver = webdriver.Chrome()
         driver.get(source["link"])
         time.sleep(7)
@@ -85,15 +94,18 @@ class scraperClass:
             link = link_tag.get("href")
             img = row.find("img").get("src")
             article = {
+                'id': str(uuid.uuid4()),
                 'title': title,
                 'link': link,
                 'img': img,
-                'source': source["source"]   
+                'source': source["source"],
+                'created_at': datetime.now().isoformat()    
             }  
             self.articles.append(article)
         return True
     
     def _lntScraper(self, source):
+        
         driver = webdriver.Chrome()
         driver.get(source["link"])
         # Wait for the page to load
@@ -114,10 +126,12 @@ class scraperClass:
                 img = row.find("img").get("src")
                 title = row.find("h2").find("a").get_text()
                 article = {
+                    'id': str(uuid.uuid4()),
                     'title': title,
                     'link': link,
                     'img': img,
-                    'source': "La nouvelle Tribune"   
+                    'source': "La nouvelle Tribune",
+                    'created_at': datetime.now().isoformat()   
                 } 
                 self.articles.append(article)
         return True

@@ -28,7 +28,7 @@ def set_logging():
 
     # Create an empty log file if not exist
     if not os.path.exists(log_file):
-        open(log_file, 'a')
+        open(log_file, 'a+')
     else:
         pass
     # Set logging config
@@ -41,14 +41,14 @@ def set_logging():
 
 def remove_old_log():
         # Delete logs older than 21 days
-        date_delete = get_past_day('day', 21)
-        log_delete = f'logs/{date_delete}.log'
-        try:
-            os.remove(log_delete)
-        except Exception as msg:
-            logging.info(f"log '{log_delete}' doesn't exist, skip delete log file!")
-        else:
-            logging.info(f"deleted {log_delete}!")
+    date_delete = get_past_day('day', 21)
+    log_delete = f'logs/{date_delete}.log'
+    try:
+        os.remove(log_delete)
+    except Exception as msg:
+        logging.info(f"log '{log_delete}' doesn't exist, skip delete log file!")
+    else:
+        logging.info(f"deleted {log_delete}!")    
 
 def job():
     newScraper = scraperClass()
@@ -69,16 +69,29 @@ def job():
         'source': "lnt",
         'link': "https://lnt.ma/",
     }]
-    ##set_logging()
-    ##logging.info('Started crawling {}...'.format(datetime.now()))
+    set_logging()
+    logging.info('Started crawling {}...'.format(datetime.now()))
     for source in sources:
          articles.append(newScraper.scraper(source))
-    ##logging.info('Finished crawling {}...'.format(datetime.now()))
-    print(articles)
+    logging.info('Finished crawling {}...'.format(datetime.now()))
+    
+    
+    RequestItems={
+        'news': []
+    }
+    
+    logging.info('Started inserting {}...'.format(datetime.now()))
+    with demo_table.batch_writer() as batch:
+        for arts in articles:
+            for article in arts:
+                batch.put_item(Item=article)  
+    logging.info('Finished inserting {}...'.format(datetime.now()))
+    remove_old_log()
     #scheduler.shutdown()
 
 if __name__ == '__main__':
-    '''
+    
+    demo_table = resource('dynamodb').Table('news')
     scheduler = BlockingScheduler()
     # Running message
     print('Started application {}'.format(datetime.now()))
@@ -87,26 +100,10 @@ if __name__ == '__main__':
     scheduler.add_job(job, 'interval', minutes = 1)
     #scheduler.add_job(remove_old_log, 'interval', minutes= 1)
     scheduler.start()
-    '''
-
-    demo_table = resource('dynamodb').Table('news')
-
-#############################  insert record #############################
-
-    def insert():
-        print(f'demo_insert')
-        response = demo_table.put_item(
-            Item={
-                    'id': 'cus-05', # parition key
-                    'title' : 'ord-5',  # sort key
-                    'link': 'pending',
-                    'image': 'img',
-                    'created_date' : datetime.now().isoformat()
-                }
-            )
-        print(f'Insert response: {response}') 
     
-    insert()
+                   
+    
 
+    
 
 
