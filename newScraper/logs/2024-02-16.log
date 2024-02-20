@@ -1,0 +1,23 @@
+INFO: Started crawling 2024-02-16 14:49:39.411420...
+INFO: ====== WebDriver manager ======
+INFO: Get LATEST chromedriver version for google-chrome
+INFO: Get LATEST chromedriver version for google-chrome
+INFO: There is no [win64] chromedriver "121.0.6167.85" for browser google-chrome "121.0.6167" in cache
+INFO: Get LATEST chromedriver version for google-chrome
+INFO: WebDriver version 121.0.6167.85 selected
+INFO: Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/121.0.6167.85/win32/chromedriver-win32.zip
+INFO: About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/121.0.6167.85/win32/chromedriver-win32.zip
+INFO: Driver downloading response is 200
+INFO: Get LATEST chromedriver version for google-chrome
+INFO: Driver has been saved in cache [C:\Users\DELL\.wdm\drivers\chromedriver\win64\121.0.6167.85]
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-16 14:50:38 +01)" skipped: maximum number of running instances reached (1)
+INFO: ====== WebDriver manager ======
+INFO: Get LATEST chromedriver version for google-chrome
+INFO: Get LATEST chromedriver version for google-chrome
+INFO: Driver [C:\Users\DELL\.wdm\drivers\chromedriver\win64\121.0.6167.85\chromedriver-win32/chromedriver.exe] found in cache
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-16 14:51:38 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished crawling 2024-02-16 14:52:13.529867...
+INFO: Started inserting 2024-02-16 14:52:13.531669...
+INFO: Finished inserting 2024-02-16 14:52:13.890024...
+INFO: log 'logs/2024-01-26 14:52:13.890024.log' doesn't exist, skip delete log file!
+INFO: Job "job (trigger: interval[0:01:00], next run at: 2024-02-16 14:52:38 +01)" executed successfully

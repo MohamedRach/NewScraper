@@ -2,8 +2,9 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
 import requests
-import uuid
-import string
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service;
+from webdriver_manager.chrome import ChromeDriverManager;
 from datetime import datetime
 
 class scraperClass:
@@ -38,8 +39,7 @@ class scraperClass:
             link = link_tag.get("href")
             img = row.find("img").get("src")
             article = {
-                'id': str(uuid.uuid4()),
-                'title': title,
+                'id': title,
                 'link': link,
                 'img': img,
                 'source': source["source"],
@@ -62,8 +62,7 @@ class scraperClass:
             else :
                 src = None
             article = {
-                'id': str(uuid.uuid4()),
-                'title': title,
+                'id': title,
                 'link': link,
                 'img': src,
                 'source': source["source"],
@@ -73,8 +72,11 @@ class scraperClass:
         return True
     
     def _hespressEnglishScraper(self, source):
-        
-        driver = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
         driver.get(source["link"])
         time.sleep(7)
         for i in range(3):
@@ -94,8 +96,7 @@ class scraperClass:
             link = link_tag.get("href")
             img = row.find("img").get("src")
             article = {
-                'id': str(uuid.uuid4()),
-                'title': title,
+                'id': title,
                 'link': link,
                 'img': img,
                 'source': source["source"],
@@ -105,8 +106,11 @@ class scraperClass:
         return True
     
     def _lntScraper(self, source):
-        
-        driver = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
         driver.get(source["link"])
         # Wait for the page to load
         time.sleep(15)
@@ -126,11 +130,10 @@ class scraperClass:
                 img = row.find("img").get("src")
                 title = row.find("h2").find("a").get_text()
                 article = {
-                    'id': str(uuid.uuid4()),
-                    'title': title,
+                    'id': title,
                     'link': link,
                     'img': img,
-                    'source': "La nouvelle Tribune",
+                    'source': "LNT",
                     'created_at': datetime.now().isoformat()   
                 } 
                 self.articles.append(article)

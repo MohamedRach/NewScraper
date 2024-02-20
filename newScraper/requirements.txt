@@ -1,0 +1,7 @@
+selenium
+beautifulsoup4
+webdriver_manager
+lxml
+requests
+boto3
+APScheduler

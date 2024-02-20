@@ -1,0 +1,53 @@
+INFO: Started crawling 2024-02-13 20:06:42.635451...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-13 20:07:42 +01)" skipped: maximum number of running instances reached (1)
+INFO: Finished crawling 2024-02-13 20:07:54.507932...
+INFO: Started inserting 2024-02-13 20:07:54.507932...
+ERROR: Job "job (trigger: interval[0:01:00], next run at: 2024-02-13 20:08:42 +01)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\web_dev\repo\newScraper\main.py", line 96, in job
+    batch.put_item(Item=article)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 103, in put_item
+    self._add_request_and_process({'PutRequest': {'Item': Item}})
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 112, in _add_request_and_process
+    self._flush_if_needed()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 139, in _flush_if_needed
+    self._flush()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 144, in _flush
+    response = self._client.batch_write_item(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 1009, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (ValidationException) when calling the BatchWriteItem operation: Provided list of item keys contains duplicates
+INFO: Running job "job (trigger: interval[0:01:00], next run at: 2024-02-13 20:09:42 +01)" (scheduled at 2024-02-13 20:08:42.344410+01:00)
+INFO: Started crawling 2024-02-13 20:08:42.354073...
+INFO: Finished crawling 2024-02-13 20:09:39.797942...
+INFO: Started inserting 2024-02-13 20:09:39.797942...
+WARNING: Execution of job "job (trigger: interval[0:01:00], next run at: 2024-02-13 20:09:42 +01)" skipped: maximum number of running instances reached (1)
+ERROR: Job "job (trigger: interval[0:01:00], next run at: 2024-02-13 20:10:42 +01)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\web_dev\repo\newScraper\main.py", line 96, in job
+    batch.put_item(Item=article)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 103, in put_item
+    self._add_request_and_process({'PutRequest': {'Item': Item}})
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 112, in _add_request_and_process
+    self._flush_if_needed()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 139, in _flush_if_needed
+    self._flush()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\boto3\dynamodb\table.py", line 144, in _flush
+    response = self._client.batch_write_item(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\site-packages\botocore\client.py", line 1009, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (ValidationException) when calling the BatchWriteItem operation: Provided list of item keys contains duplicates

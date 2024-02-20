@@ -6,7 +6,6 @@ import os
 from apscheduler.schedulers.background import BlockingScheduler
 from boto3 import resource
 from boto3.dynamodb.conditions import Attr, Key
-import certifi
 
 def get_past_day(unit, number):
     # Get current date
@@ -81,23 +80,38 @@ def job():
     }
     
     logging.info('Started inserting {}...'.format(datetime.now()))
+    
     with demo_table.batch_writer() as batch:
         for arts in articles:
             for article in arts:
-                batch.put_item(Item=article)  
+                article_id = article.get("id")  # Assuming "id" is the key attribute name
+                if not article_id:
+                    continue  # Skip if article has no ID
+
+                # Check if the item with the same ID already exists in the table
+                response = demo_table.get_item(Key={"id": article_id})
+
+                if "Item" not in response:
+                    # Item doesn't exist, so we can insert it
+                    batch.put_item(Item=article)
+                else:
+                    # Item with the same ID already exists, so skip insertion
+                   logging.info(f"Skipping insertion of duplicate item with ID: {article_id}")
+    
+    
     logging.info('Finished inserting {}...'.format(datetime.now()))
     remove_old_log()
     #scheduler.shutdown()
 
 if __name__ == '__main__':
     
-    demo_table = resource('dynamodb').Table('news')
+    demo_table = resource('dynamodb', region_name='eu-north-1', aws_access_key_id="AKIATCKAOJYWWYLXJNKS", aws_secret_access_key="").Table('news')
     scheduler = BlockingScheduler()
     # Running message
     print('Started application {}'.format(datetime.now()))
     print('****************************** APP IS RUNNING ******************************')
     # Run process
-    scheduler.add_job(job, 'interval', minutes = 1)
+    scheduler.add_job(job, 'cron', hour=12)
     #scheduler.add_job(remove_old_log, 'interval', minutes= 1)
     scheduler.start()
     
