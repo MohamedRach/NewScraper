@@ -8,7 +8,11 @@ export class NewsRepository {
 
     constructor(){
         this.client = new DynamoDBClient({
-            region: "eu-north-1"
+            region: "eu-north-1",
+            credentials:{
+                accessKeyId:process.env.accessKeyId,
+                secretAccessKey:process.env.secretAccessKey
+            }
         })
     }
 
