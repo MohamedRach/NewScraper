@@ -6,12 +6,13 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service;
 from webdriver_manager.chrome import ChromeDriverManager;
 from datetime import datetime
-
+import uuid
+import string
 class scraperClass:
     articles = []
     def scraper(self, source):
-        scraper = self._get_scraper(source["source"])
-        scraper(source)
+        news_source = self._get_scraper(source["source"])
+        news_source(source)
         return self.articles
     
     
@@ -39,7 +40,8 @@ class scraperClass:
             link = link_tag.get("href")
             img = row.find("img").get("src")
             article = {
-                'id': title,
+                'id': str(uuid.uuid4()),
+                'title': title,
                 'link': link,
                 'img': img,
                 'source': source["source"],
@@ -62,7 +64,8 @@ class scraperClass:
             else :
                 src = None
             article = {
-                'id': title,
+                'id': str(uuid.uuid4()),
+                'title': title,
                 'link': link,
                 'img': src,
                 'source': source["source"],
@@ -96,7 +99,8 @@ class scraperClass:
             link = link_tag.get("href")
             img = row.find("img").get("src")
             article = {
-                'id': title,
+                'id': str(uuid.uuid4()),
+                'title': title,
                 'link': link,
                 'img': img,
                 'source': source["source"],
@@ -130,7 +134,8 @@ class scraperClass:
                 img = row.find("img").get("src")
                 title = row.find("h2").find("a").get_text()
                 article = {
-                    'id': title,
+                    'id': str(uuid.uuid4()),
+                    'title': title,
                     'link': link,
                     'img': img,
                     'source': "LNT",
